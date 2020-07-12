@@ -1,10 +1,11 @@
 ---
 - name: install docker and git
-  hosts: build prod preprod
+  hosts: build prod
   #  gather_facts: False
   become: true
   vars_files:
-    - "files/secrets/devops.yml"
+    - "secret/login-and-password.yml"
+    - "group-vars/main.yml"
   vars:
     pip_install_packages:
       - name: docker
