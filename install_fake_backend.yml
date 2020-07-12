@@ -1,11 +1,11 @@
----
-- name: install docker and git
-  hosts: build prod
-  #  gather_facts: False
+- name: Deploy fake-backend
+  hosts: build prod preprod
+  gather_facts: true
   become: true
   vars_files:
     - "secret/login-and-password.yml"
     - "group-vars/main.yml"
+
   vars:
     pip_install_packages:
       - name: docker
@@ -17,13 +17,10 @@
 
       - name: install python-pip
         package: name=python-pip state=present update_cache=yes
-
-      - name: install git
-        package: name=git state=present
       tags:
         - always
-
   roles:
     - { role: geerlingguy.pip, tags: [ always ] }
     - { role: geerlingguy.docker, tags: [ always ] }
+    - { role: geerlingguy.git, tags: [ always ] }
     - { role: role }
