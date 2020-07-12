@@ -53,7 +53,7 @@ pipeline {
             stages {
                stage("Install ansible role dependencies") {
                    steps {
-                       sh 'ansible-galaxy install -r role/requirements.yml'
+                       sh 'ansible-galaxy install -r roles/requirements.yml'
                    }
                }
                stage("Ping targeted hosts") {
