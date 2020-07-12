@@ -20,7 +20,7 @@
       tags:
         - always
   roles:
-    - { role: geerlingguy.pip, tags: [ always ] }
-    - { role: geerlingguy.docker, tags: [ always ] }
-    - { role: geerlingguy.git, tags: [ always ] }
-    - { role: role }
+    - role: 'geerlingguy.pip'
+    - role: 'geerlingguy.docker'
+    - role: 'geerlingguy.git'
+    - role: 'role'
